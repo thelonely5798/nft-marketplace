@@ -1,0 +1,19 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@app/morallis/(.*)": "<rootDir>/../libs/morallis/src/$1",
+    "@app/morallis": "<rootDir>/../libs/morallis/src",
+    "@app/eth/(.*)": "<rootDir>/../libs/eth/src/$1",
+    "@app/eth": "<rootDir>/../libs/eth/src"
+  }
+}
