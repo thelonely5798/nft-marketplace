@@ -85,13 +85,14 @@
         nftInfo.tradeSummary?.bestAsk.payment.symbol }}</h5>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xl-6 col-lg-12 col-md-6">
+                                        <div class="col-xl-6 col-lg-12 col-md-6" v-if="!_.isEmpty(nftInfo.acceptHighestOffer?.bestBid)">
                                             <h5 class="title">Highest bid</h5>
                                             <div class="highest-bid-avatar">
                                                 <div class="thumb"><img src="/img/others/heighest_avatar.png" alt=""></div>
                                                 <div class="content">
-                                                    <h5 class="title"><a href="author-profile.html">{{ contractName(String(nftInfo.acceptHighestOffer?.bestBid.maker.address || "")) }}</a></h5>
-                                                    <span>{{ nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.unit }}{{ nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.symbol }}</span>
+                                                    <h5 class="title"><a href="author-profile.html">{{  contractName(String(nftInfo.acceptHighestOffer?.bestBid.maker.address)) }}</a></h5>
+                                                    <span>{{ nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.unit }}
+                                                        {{   nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.symbol }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -555,6 +556,7 @@
 </template>
 
 <script setup lang="ts">
+import _ from "lodash"
 import Routes from "@/constants/routes"
 import { useNetworkStore } from "~/store/network";
 import { NftInterface } from "./types";
