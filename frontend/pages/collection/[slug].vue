@@ -79,9 +79,9 @@
                                         collectionInfo.statsV2?.floorPrice.unit }} {{
         collectionInfo.statsV2?.floorPrice.symbol }}</span></h6>
                                     <span>&nbsp;&nbsp;</span>
-                                    <h6>Best Offer: <span :style="{ color: 'var(--purple-color)' }">{{
-                                        collectionInfo.collectionOffers?.edges[0].node.perUnitPriceType.unit }} {{
-        collectionInfo.collectionOffers?.edges[0].node.perUnitPriceType.symbol }}</span>
+                                    <h6>Best Offer: <span :style="{ color: 'var(--purple-color)' }">
+                                    {{ !_.isEmpty(collectionInfo.collectionOffers?.edges) ?? collectionInfo.collectionOffers?.edges[0]?.node?.perUnitPriceType.unit }} 
+                                    {{ !_.isEmpty(collectionInfo.collectionOffers?.edges) ?? collectionInfo.collectionOffers?.edges[0].node.perUnitPriceType.symbol }}</span>
                                     </h6>
                                     <span>&nbsp;&nbsp;</span>
                                     <h6>Owners: <span :style="{ color: 'var(--purple-color)' }">{{
