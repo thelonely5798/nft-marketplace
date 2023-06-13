@@ -40,9 +40,13 @@
                                 <div class="w-50">
                                     <ul class="icon">
                                         <li><a href="javascript:void(0)"><i class="fi-sr-pharmacy"></i></a></li>
-                                        <li><a target="_blank" :href="collectionInfo.externalUrl"><i class="fi-sr-globe"></i></a></li>
-                                        <li><a target="_blank" href="javascript:void(0)"><i class="fi-sr-share"></i></a></li>
-                                        <li><a target="_blank" :href="'https://twitter.com/' + collectionInfo.connectedTwitterUsername"><i class="flaticon-twitter"></i></a></li>
+                                        <li><a target="_blank" :href="collectionInfo.externalUrl"><i
+                                                    class="fi-sr-globe"></i></a></li>
+                                        <li><a target="_blank" href="javascript:void(0)"><i class="fi-sr-share"></i></a>
+                                        </li>
+                                        <li><a target="_blank"
+                                                :href="'https://twitter.com/' + collectionInfo.connectedTwitterUsername"><i
+                                                    class="flaticon-twitter"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -75,13 +79,15 @@
                                         Number(Math.floor(Number(collectionInfo.statsV2?.totalVolume.unit))).toLocaleString()
                                     }} {{ collectionInfo.statsV2?.totalVolume.symbol }}</span></h6>
                                     <span>&nbsp;&nbsp;</span>
-                                    <h6>Floor Price: <span :style="{ color: 'var(--purple-color)' }">{{
-                                        collectionInfo.statsV2?.floorPrice.unit }} {{
-        collectionInfo.statsV2?.floorPrice.symbol }}</span></h6>
+                                    <h6>Floor Price: <span :style="{ color: 'var(--purple-color)' }">
+                                    {{!_.isEmpty(collectionInfo.statsV2?.floorPrice) &&  collectionInfo.statsV2?.floorPrice.unit }} 
+                                    {{!_.isEmpty(collectionInfo.statsV2?.floorPrice) && collectionInfo.statsV2?.floorPrice.symbol }}</span></h6>
                                     <span>&nbsp;&nbsp;</span>
                                     <h6>Best Offer: <span :style="{ color: 'var(--purple-color)' }">
-                                    {{ !_.isEmpty(collectionInfo.collectionOffers?.edges) ?? collectionInfo.collectionOffers?.edges[0]?.node?.perUnitPriceType.unit }} 
-                                    {{ !_.isEmpty(collectionInfo.collectionOffers?.edges) ?? collectionInfo.collectionOffers?.edges[0].node.perUnitPriceType.symbol }}</span>
+                                            {{ !_.isEmpty(collectionInfo.collectionOffers?.edges) &&
+                                                collectionInfo.collectionOffers?.edges[0]?.node?.perUnitPriceType.unit }}
+                                            {{ !_.isEmpty(collectionInfo.collectionOffers?.edges) &&
+                                                collectionInfo.collectionOffers?.edges[0].node.perUnitPriceType.symbol }}</span>
                                     </h6>
                                     <span>&nbsp;&nbsp;</span>
                                     <h6>Owners: <span :style="{ color: 'var(--purple-color)' }">{{
@@ -183,7 +189,9 @@
                                         </div>
                                         <div class="collection-item-bottom">
                                             <ul>
-                                                <li class="bid"><NuxtLink  :href="getAssetsLink(item)" class="btn">place a bid</NuxtLink></li>
+                                                <li class="bid">
+                                                    <NuxtLink :href="getAssetsLink(item)" class="btn">place a bid</NuxtLink>
+                                                </li>
                                                 <!-- <li class="wishlist"><a href="#">59</a></li> -->
                                             </ul>
                                         </div>
@@ -401,7 +409,7 @@ const getNftItems = computed(() => collection.value.map((c: any) => c.node) as A
 const getBannerUrl = () => collectionInfo.value.bannerImageUrl?.split("?")[0] + "?auto=format&dpr=1&w=1920"
 
 const getAssetsLink = (item: NftItem) => {
-    return Routes.Assets + '/' + item.chain.identifier.toLowerCase() + '/' + item.assetContract.address   + '/' + item.tokenId
+    return Routes.Assets + '/' + item.chain.identifier.toLowerCase() + '/' + item.assetContract.address + '/' + item.tokenId
 }
 </script>
 
