@@ -37,7 +37,7 @@
                                     <div class="collection-item-top">
                                         <ul>
                                             <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                        src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                        src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                     href="author-profile" class="name">Jonson</a></li>
                                             <li class="info-dots dropdown">
                                                 <span></span>
