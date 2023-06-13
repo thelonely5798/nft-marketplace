@@ -7,7 +7,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-9">
                         <div class="footer-widget">
                             <div class="footer-logo mb-25">
-                                <a href="index"><img src="img/logo/logo.png" alt=""></a>
+                                <a href="index"><img src="/img/logo/logo.png" alt=""></a>
                             </div>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus veritatis sequi doloribus
                                 fuga.</p>

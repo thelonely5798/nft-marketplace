@@ -8,89 +8,11 @@
         <!-- main-content -->
         <div class="main-content">
             <!-- header-area -->
-            <header>
-                <div class="menu-area market-single-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
-                                <div class="menu-wrap">
-                                    <nav class="menu-nav">
-                                        <div class="logo"><a :href="Routes.Home"><img src="img/logo/naftmak.svg" alt=""></a>
-                                        </div>
-                                        <div class="header-form">
-                                            <form action="#">
-                                                <button><i class="flaticon-search"></i></button>
-                                                <input type="text" placeholder="Search Artwork">
-                                            </form>
-                                        </div>
-                                        <div class="navbar-wrap main-menu d-none d-lg-flex">
-                                            <ul class="navigation">
-                                                <li><a :href="Routes.Home">Home</a></li>
-                                                <li><a :href="Routes.NftMarketplace">Explore</a></li>
-                                                <li><a href="collections.html">Collection</a></li>
-                                                <li class="active menu-item-has-children"><a href="#">Pages</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="activity.html">Activity</a></li>
-                                                        <li><a href="category.html">Category</a></li>
-                                                        <li><a href="ranking.html">Ranking</a></li>
-                                                        <li><a href="creators.html">Creators</a></li>
-                                                        <li class="active"><a href="market-single.html">Market Single</a>
-                                                        </li>
-                                                        <li><a href="nft-live-bidding.html">Live Bidding</a></li>
-                                                        <li><a href="create-item.html">Create Item</a></li>
-                                                        <li><a href="author-profile.html">Author Profile</a></li>
-                                                        <li><a href="login-register.html">Login & Register</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children"><a href="#">Blog</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="blog.html">Our Blog</a></li>
-                                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="header-action d-none d-md-block">
-                                            <ul>
-                                                <li class="header-btn"><a href="connect-wallets.html" class="btn">Wallet
-                                                        Connect</a></li>
-                                            </ul>
-                                        </div>
-                                    </nav>
-                                </div>
-                                <!-- Mobile Menu  -->
-                                <div class="mobile-menu">
-                                    <nav class="menu-box">
-                                        <div class="close-btn"><i class="fas fa-times"></i></div>
-                                        <div class="nav-logo"><a :href="Routes.Home"><img src="img/logo/logo.png" alt=""
-                                                    title=""></a>
-                                        </div>
-                                        <div class="menu-outer">
-                                            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-                                        </div>
-                                        <div class="social-links">
-                                            <ul class="clearfix">
-                                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                                <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                                <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                                                <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                                <li><a href="#"><span class="fab fa-youtube"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </nav>
-                                </div>
-                                <div class="menu-backdrop"></div>
-                                <!-- End Mobile Menu -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <BaseHeader/>
             <!-- header-area-end -->
 
             <!-- main-area -->
-            <main>
+            <main style="margin-top: 150px;">
 
                 <!-- breadcrumb-area -->
                 <div class="breadcrumb-area market-single-breadcrumb-area">
@@ -99,7 +21,7 @@
                         <div class="row justify-content-center">
                             <div class="col-12">
                                 <div class="market-single-breadcrumb">
-                                    <div class="home-back-btn"><a :href="Routes.Home">go back to home</a></div>
+                                    <div class="home-back-btn"><NuxtLink :href="Routes.Home">go back to home</NuxtLink></div>
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a :href="Routes.Home">Home</a></li>
@@ -119,16 +41,17 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="market-single-img">
-                                    <img src="img/others/market_details_img.png" alt="">
+                                    <img :src="nftInfo.displayImageUrl" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="market-single-top">
                                     <div class="market-single-title-wrap">
-                                        <h2 class="title">Anatomy Science Club</h2>
+                                        <h2 class="title">{{ nftInfo.name }}</h2>
                                         <ul class="market-details-meta">
-                                            <li>Owned by <a href="#">B14484</a></li>
-                                            <li class="wishlist">6 favorites</li>
+                                            <li>Owned by <a href="#">{{ nftInfo.assetOwners?.edges[0].node.owner.displayName
+                                                || contractName(nftInfo.assetOwners?.edges[0].node.owner.address || '') }}</a></li>
+                                            <li class="wishlist">{{ nftInfo.favoritesCount }} favorites</li>
                                         </ul>
                                     </div>
                                     <div class="market-single-action">
@@ -141,44 +64,46 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="market-single-creator">
-                                            <div class="thumb"><img src="img/others/mp_avatar01.png" alt=""></div>
+                                            <div class="thumb"><img :style="{ borderRadius: '50%' }"
+                                                    :src="nftInfo.creator?.imageUrl" alt=""></div>
                                             <div class="info">
-                                                <h5 class="title"><a href="author-profile.html">David Michels</a></h5>
+                                                <h5 class="title"><a href="author-profile.html">{{
+                                                    nftInfo.creator?.displayName || nftInfo.creator?.displayName }}</a>
+                                                </h5>
                                                 <span>Creators by</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="market-single-creator">
-                                            <div class="thumb"><img src="img/others/mp_avatar02.png" alt=""></div>
-                                            <div class="info">
-                                                <h5 class="title"><a href="author-profile.html">MR. Tartos</a></h5>
-                                                <span>Collection by</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="market-single-content">
-                                    <p>What even is an NFT? NFT stands for non-fungible token, which basically means that
-                                        it's one-of-kind digital asset that belongs to you and you only. The most popular
-                                        NFTs right now include artwork and music also include videos.</p>
+                                    <p>{{ nftInfo.description }}</p>
                                 </div>
                                 <div class="highest-bid-wrap">
+                                    <div class="row">
+                                        <h5 class="title">Current price : &nbsp; {{
+                                            nftInfo.tradeSummary?.bestAsk.priceType.unit }} {{
+        nftInfo.tradeSummary?.bestAsk.payment.symbol }}</h5>
+                                    </div>
                                     <div class="row">
                                         <div class="col-xl-6 col-lg-12 col-md-6">
                                             <h5 class="title">Highest bid</h5>
                                             <div class="highest-bid-avatar">
-                                                <div class="thumb"><img src="img/others/heighest_avatar.png" alt=""></div>
+                                                <div class="thumb"><img src="/img/others/heighest_avatar.png" alt=""></div>
                                                 <div class="content">
-                                                    <h5 class="title"><a href="author-profile.html">Tomas lindahl</a></h5>
-                                                    <span>3.005wETH</span>
+                                                    <h5 class="title"><a href="author-profile.html">{{ contractName(String(nftInfo.acceptHighestOffer?.bestBid.maker.address || "")) }}</a></h5>
+                                                    <span>{{ nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.unit }}{{ nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.symbol }}</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-12 col-md-6">
-                                            <h5 class="title">Auction has ended</h5>
+                                            <h5 class="title">Auction end in</h5>
                                             <div class="bid-countdown-wrap">
-                                                <div class="coming-time" data-countdown="2022/05/16"></div>
+                                                <div class="coming-time">
+                                                    <div class="time-count day"><span>{{ countDown.day }}</span><span>Day</span></div>
+                                                    <div class="time-count hour"><span>{{ countDown.hour }}</span><span>Hours</span></div>
+                                                    <div class="time-count min"><span>{{ countDown.minutes }}</span><span>Minute</span></div>
+                                                    <div class="time-count sec"><span>{{ countDown.second }}</span><span>Second</span></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -190,39 +115,21 @@
                                     <table class="table activity-table">
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="title">Description</th>
-                                                <th scope="col">Floor Price</th>
-                                                <th scope="col">Owners</th>
-                                                <th scope="col" class="time">Assets</th>
+                                                <!-- <th scope="col" class="title">Description</th> -->
+                                                <th scope="col">Trait Type</th>
+                                                <th scope="col">Value</th>
+                                                <th scope="col" class="time">Floor Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row" class="author">
-                                                    <img src="img/others/mp_activity_author01.png" alt=""> <a
-                                                        :href="Routes.NftMarketplace">Trading Pet</a>
-                                                </th>
-                                                <td>+5486%</td>
-                                                <td>-965%</td>
-                                                <td>2,356 ETH</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="author">
-                                                    <img src="img/others/mp_activity_author02.png" alt=""> <a
-                                                        :href="Routes.NftMarketplace">Trading Craft</a>
-                                                </th>
-                                                <td>+5486%</td>
-                                                <td>-965%</td>
-                                                <td>2,356 ETH</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="author">
-                                                    <img src="img/others/mp_activity_author03.png" alt=""> <a
-                                                        :href="Routes.NftMarketplace">Trading Cards</a>
-                                                </th>
-                                                <td>+5486%</td>
-                                                <td>-965%</td>
-                                                <td>2,356 ETH</td>
+                                            <tr v-for="trait in nftInfo.traits?.edges">
+                                                <!-- <th scope="row" class="author">
+                                                    <img src="/img/others/mp_activity_author01.png" alt="">
+                                                     <a href="javascript:void(0)">{{ trait.node.id }}</a>
+                                                </th> -->
+                                                <td class="text-start">{{ trait.node.traitType }}</td>
+                                                <td>{{ trait.node.value }}</td>
+                                                <td class="text-end">2,356 ETH</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -255,8 +162,8 @@
                                                     <li>
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
-                                                                <div class="thumb"><img src="img/others/heighest_avatar.png"
-                                                                        alt=""></div>
+                                                                <div class="thumb"><img
+                                                                        src="/img/others/heighest_avatar.png" alt=""></div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">Tomas
                                                                             lindahl</a></h5>
@@ -273,7 +180,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar02.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar02.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">David
                                                                             Michels</a></h5>
@@ -290,7 +198,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar03.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar03.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">Jonny
                                                                             Dev</a></h5>
@@ -307,7 +216,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar04.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar04.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">Tomas
                                                                             lindahl</a></h5>
@@ -324,7 +234,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar05.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar05.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">Tomas
                                                                             Komai</a></h5>
@@ -341,7 +252,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar06.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar06.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">Tomas
                                                                             Harne</a></h5>
@@ -357,8 +269,8 @@
                                                     <li>
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
-                                                                <div class="thumb"><img src="img/others/heighest_avatar.png"
-                                                                        alt=""></div>
+                                                                <div class="thumb"><img
+                                                                        src="/img/others/heighest_avatar.png" alt=""></div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="author-profile.html">Tomas
                                                                             lindahl</a></h5>
@@ -381,7 +293,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar02.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar02.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -397,7 +310,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar03.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar03.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -413,7 +327,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar04.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar04.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -429,7 +344,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar05.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar05.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -445,7 +361,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar06.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar06.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -461,7 +378,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar02.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar02.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -476,8 +394,8 @@
                                                     <li>
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
-                                                                <div class="thumb"><img src="img/others/heighest_avatar.png"
-                                                                        alt=""></div>
+                                                                <div class="thumb"><img
+                                                                        src="/img/others/heighest_avatar.png" alt=""></div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -499,8 +417,8 @@
                                                     <li>
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
-                                                                <div class="thumb"><img src="img/others/heighest_avatar.png"
-                                                                        alt=""></div>
+                                                                <div class="thumb"><img
+                                                                        src="/img/others/heighest_avatar.png" alt=""></div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -516,7 +434,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar02.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar02.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -532,7 +451,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar03.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar03.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -548,7 +468,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar04.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar04.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -564,7 +485,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar05.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar05.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -580,7 +502,8 @@
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
                                                                 <div class="thumb"><img
-                                                                        src="img/others/heighest_avatar06.png" alt=""></div>
+                                                                        src="/img/others/heighest_avatar06.png" alt="">
+                                                                </div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -595,8 +518,8 @@
                                                     <li>
                                                         <div class="bid-history-item">
                                                             <div class="highest-bid-avatar">
-                                                                <div class="thumb"><img src="img/others/heighest_avatar.png"
-                                                                        alt=""></div>
+                                                                <div class="thumb"><img
+                                                                        src="/img/others/heighest_avatar.png" alt=""></div>
                                                                 <div class="content">
                                                                     <h5 class="title"><a href="#">Tomas lindahl</a></h5>
                                                                     <span>Bid listed</span>
@@ -627,10 +550,56 @@
         </div>
         <!-- main-content-end -->
 
-</div>
-<!-- main-content-end --></template>
+    </div>
+    <!-- main-content-end -->
+</template>
 
 <script setup lang="ts">
 import Routes from "@/constants/routes"
+import { useNetworkStore } from "~/store/network";
+import { NftInterface } from "./types";
+import { useLoadingStore } from "~/store/loading";
+import dayjs from "dayjs"
+import * as duration from "dayjs/plugin/duration"
+dayjs.extend(duration)
 
+const route = useRoute()
+const nftInfo = ref<Partial<NftInterface>>({})
+const network = useNetworkStore().getNetwork
+const loading = useLoadingStore()
+const countDown = ref({day: "", hour: "", minutes: "", second: ""})
+onBeforeMount(() => {
+    const chain = route.params.slug[0].toUpperCase()
+    const contractAddress = route.params.slug[1]
+    const tokenId = route.params.slug[2]
+    const fetch = async () => {
+        const body = {
+            chain,
+            contractAddress,
+            tokenId
+        }
+        const response = await network.getAssetPageQuery(body)
+        nftInfo.value = response.nft
+    }
+    Promise.all([fetch()]).then(() => {
+        loading.set(false)
+        setInterval(() => {
+            getCountDown()
+        }, 1000)
+    })
+})
+
+
+const getCountDown = () => {
+
+
+    let x = dayjs(nftInfo.value.tradeSummary?.bestAsk.closedAt)
+    let y = dayjs()
+
+    let d = dayjs.duration(x.diff(y))
+    countDown.value.day =  d.asDays().toFixed(0).toString()
+    countDown.value.hour =   d.get("hours").toString()
+    countDown.value.minutes=   d.get("minutes").toString()
+    countDown.value.second =   d.get("seconds").toString()
+}
 </script>

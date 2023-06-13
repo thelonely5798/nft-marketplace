@@ -8,7 +8,8 @@ enum Routes {
     NftMarketplace = "/nft-marketplace",
     Login = "/login",
     Ranking = "/ranking",
-    Activity = "/activity"
+    Activity = "/activity",
+    Assets = "/assets",
 }
 
 

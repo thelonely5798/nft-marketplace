@@ -31,14 +31,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <ul class="category-list">
-                                    <li class="active"><a href="/"><img src="img/icons/cat_001.png" alt=""> All</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_01.png" alt=""> Games</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_02.png" alt=""> Art</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_03.png" alt=""> Trading Cards</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_04.png" alt=""> Music</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_05.png" alt=""> Domain Names</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_06.png" alt=""> Memes</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_07.png" alt=""> Collectibles</a></li>
+                                    <li class="active"><a href="/"><img src="/img/icons/cat_001.png" alt=""> All</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_01.png" alt=""> Games</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_02.png" alt=""> Art</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_03.png" alt=""> Trading Cards</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_04.png" alt=""> Music</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_05.png" alt=""> Domain Names</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_06.png" alt=""> Memes</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_07.png" alt=""> Collectibles</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -53,10 +53,10 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 order-2 order-lg-0">
                                 <aside class="author-profile-wrap">
                                     <div class="author-profile-thumb">
-                                        <img src="img/others/author_profile.png" alt="">
+                                        <img src="/img/others/author_profile.png" alt="">
                                     </div>
                                     <div class="author-info">
-                                        <h5 class="title">Olivia Jenar <img src="img/icons/star.svg" alt=""></h5>
+                                        <h5 class="title">Olivia Jenar <img src="/img/icons/star.svg" alt=""></h5>
                                         <span>@ marketplace</span>
                                         <p>Myself Olivia_ ipsum dolor amet this consectetur adipisicing elit. Quis non fugit totam laborio.</p>
                                     </div>
@@ -95,7 +95,7 @@
                                         <div class="top-collection-item">
                                             <div class="collection-item-top">
                                                 <ul>
-                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
+                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="/img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
                                                     <li class="info-dots dropdown">
                                                         <span></span>
                                                         <span></span>
@@ -110,7 +110,7 @@
                                                 </ul>
                                             </div>
                                             <div class="collection-item-thumb">
-                                                <a href="market-single"><img src="img/others/top_collection01.jpg" alt=""></a>
+                                                <a href="market-single"><img src="/img/others/top_collection01.jpg" alt=""></a>
                                             </div>
                                             <div class="collection-item-content">
                                                 <h5 class="title"><a href="market-single">Action Collection</a> <span class="price">5.4 ETH</span></h5>
@@ -127,7 +127,7 @@
                                         <div class="top-collection-item">
                                             <div class="collection-item-top">
                                                 <ul>
-                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
+                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="/img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
                                                     <li class="info-dots dropdown">
                                                         <span></span>
                                                         <span></span>
@@ -142,7 +142,7 @@
                                                 </ul>
                                             </div>
                                             <div class="collection-item-thumb">
-                                                <a href="market-single"><img src="img/others/top_collection05.jpg" alt=""></a>
+                                                <a href="market-single"><img src="/img/others/top_collection05.jpg" alt=""></a>
                                             </div>
                                             <div class="collection-item-content">
                                                 <h5 class="title"><a href="market-single">Pie Collection</a> <span class="price">5.4 ETH</span></h5>
@@ -159,7 +159,7 @@
                                         <div class="top-collection-item">
                                             <div class="collection-item-top">
                                                 <ul>
-                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
+                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="/img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
                                                     <li class="info-dots dropdown">
                                                         <span></span>
                                                         <span></span>
@@ -174,7 +174,7 @@
                                                 </ul>
                                             </div>
                                             <div class="collection-item-thumb">
-                                                <a href="market-single"><img src="img/others/top_collection06.jpg" alt=""></a>
+                                                <a href="market-single"><img src="/img/others/top_collection06.jpg" alt=""></a>
                                             </div>
                                             <div class="collection-item-content">
                                                 <h5 class="title"><a href="market-single">Artwork Collection</a> <span class="price">5.4 ETH</span></h5>
@@ -191,7 +191,7 @@
                                         <div class="top-collection-item">
                                             <div class="collection-item-top">
                                                 <ul>
-                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
+                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="/img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
                                                     <li class="info-dots dropdown">
                                                         <span></span>
                                                         <span></span>
@@ -206,7 +206,7 @@
                                                 </ul>
                                             </div>
                                             <div class="collection-item-thumb">
-                                                <a href="market-single"><img src="img/others/top_collection07.jpg" alt=""></a>
+                                                <a href="market-single"><img src="/img/others/top_collection07.jpg" alt=""></a>
                                             </div>
                                             <div class="collection-item-content">
                                                 <h5 class="title"><a href="market-single">Action Collection</a> <span class="price">5.4 ETH</span></h5>
@@ -223,7 +223,7 @@
                                         <div class="top-collection-item">
                                             <div class="collection-item-top">
                                                 <ul>
-                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
+                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="/img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
                                                     <li class="info-dots dropdown">
                                                         <span></span>
                                                         <span></span>
@@ -239,7 +239,7 @@
                                                 </ul>
                                             </div>
                                             <div class="collection-item-thumb">
-                                                <a href="market-single"><img src="img/others/top_collection08.jpg" alt=""></a>
+                                                <a href="market-single"><img src="/img/others/top_collection08.jpg" alt=""></a>
                                             </div>
                                             <div class="collection-item-content">
                                                 <h5 class="title"><a href="market-single">Artwork Collection</a> <span class="price">5.4 ETH</span></h5>
@@ -256,7 +256,7 @@
                                         <div class="top-collection-item">
                                             <div class="collection-item-top">
                                                 <ul>
-                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
+                                                    <li class="avatar"><a href="author-profile" class="thumb"><img src="/img/others/top_col_avatar.png" alt=""></a>By <a href="author-profile" class="name">Jonson</a></li>
                                                     <li class="info-dots dropdown">
                                                         <span></span>
                                                         <span></span>
@@ -272,7 +272,7 @@
                                                 </ul>
                                             </div>
                                             <div class="collection-item-thumb">
-                                                <a href="market-single"><img src="img/others/top_collection09.jpg" alt=""></a>
+                                                <a href="market-single"><img src="/img/others/top_collection09.jpg" alt=""></a>
                                             </div>
                                             <div class="collection-item-content">
                                                 <h5 class="title"><a href="market-single">NFT Collection</a> <span class="price">5.4 ETH</span></h5>

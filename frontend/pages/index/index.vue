@@ -46,7 +46,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="section-title mb-40">
-                                        <h2 class="title">Top Seller <img src="img/icons/title_icon01.png" alt=""></h2>
+                                        <h2 class="title">Top Seller on {{ network.getName() }}  <img src="/img/icons/title_icon01.png" alt=""></h2>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                 <div v-for="seller in topSeller" class="col-xl-3 col-lg-4 col-sm-6">
                                     <div class="top-seller-item">
                                         <div class="top-seller-img">
-                                            <img src="img/others/top-seller-img.jpg" alt="">
+                                            <img src="/img/others/top-seller-img.jpg" alt="">
                                         </div>
                                         <div class="top-seller-content">
                                             <h5 class="title"><a href="author-profile">{{
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="section-title mb-40">
-                                <h2 class="title">Top collections <img src="img/icons/title_icon01.png" alt=""></h2>
+                                <h2 class="title">Top collections on {{ network.getName() }} <img src="/img/icons/title_icon01.png" alt=""></h2>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -118,12 +118,12 @@
                                         _.floor(nft.floor_price, 2) }}
                                             ETH</span></h5>
                                 </div>
-                                <div class="collection-item-bottom">
+                                <!-- <div class="collection-item-bottom">
                                     <ul>
                                         <li class="bid"><a href="javscript:void" class="btn">place a bid</a></li>
                                         <li class="wishlist"><a href="login-register">59</a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title mb-35">
-                                    <h2 class="title">Features of the week <img src="img/icons/title_icon02.png" alt="">
+                                    <h2 class="title">Features of the week <img src="/img/icons/title_icon02.png" alt="">
                                     </h2>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                     <div class="features-item-top">
                                         <div class="features-avatar">
                                             <div class="features-avatar-thumb">
-                                                <a href="author-profile"><img src="img/others/features_avatar.png"
+                                                <a href="author-profile"><img src="/img/others/features_avatar.png"
                                                         alt=""></a>
                                             </div>
                                             <div class="features-avatar-info">
@@ -162,10 +162,10 @@
                                         </div>
                                     </div>
                                     <ul class="features-img-wrap">
-                                        <li class="grid-item"><img src="img/others/features_img01.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/features_img02.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/features_img03.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/features_img04.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img01.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img02.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img03.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img04.png" alt=""></li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                                     <div class="features-item-top">
                                         <div class="features-avatar">
                                             <div class="features-avatar-thumb">
-                                                <a href="author-profile"><img src="img/others/features_avatar02.png"
+                                                <a href="author-profile"><img src="/img/others/features_avatar02.png"
                                                         alt=""></a>
                                             </div>
                                             <div class="features-avatar-info">
@@ -187,10 +187,10 @@
                                         </div>
                                     </div>
                                     <ul class="features-img-wrap">
-                                        <li class="grid-item"><img src="img/others/s_features_img01.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/features_img02.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/s_features_img03.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/s_features_img04.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/s_features_img01.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img02.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/s_features_img03.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/s_features_img04.png" alt=""></li>
                                     </ul>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                                     <div class="features-item-top">
                                         <div class="features-avatar">
                                             <div class="features-avatar-thumb">
-                                                <a href="author-profile"><img src="img/others/features_avatar03.png"
+                                                <a href="author-profile"><img src="/img/others/features_avatar03.png"
                                                         alt=""></a>
                                             </div>
                                             <div class="features-avatar-info">
@@ -212,10 +212,10 @@
                                         </div>
                                     </div>
                                     <ul class="features-img-wrap">
-                                        <li class="grid-item"><img src="img/others/t_features_img01.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/features_img02.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/features_img03.png" alt=""></li>
-                                        <li class="grid-item"><img src="img/others/t_features_img04.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/t_features_img01.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img02.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/features_img03.png" alt=""></li>
+                                        <li class="grid-item"><img src="/img/others/t_features_img04.png" alt=""></li>
                                     </ul>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title mb-45">
-                                    <h2 class="title">Create And Sell Your NFTs <img src="img/icons/title_icon03.png"
+                                    <h2 class="title">Create And Sell Your NFTs <img src="/img/icons/title_icon03.png"
                                             alt=""></h2>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="sell-nfts-item">
-                                    <img src="img/icons/nfts_01.png" alt="" class="icon">
+                                    <img src="/img/icons/nfts_01.png" alt="" class="icon">
                                     <span class="step-count">go step 1</span>
                                     <h5 class="title">Create And Sell</h5>
                                     <p>Wallet that is functional for NFT purchasing. You have Coinbase account at this
@@ -247,7 +247,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="sell-nfts-item">
-                                    <img src="img/icons/nfts_02.png" alt="" class="icon">
+                                    <img src="/img/icons/nfts_02.png" alt="" class="icon">
                                     <span class="step-count">go step 2</span>
                                     <h5 class="title">Create Collection</h5>
                                     <p>Wallet that is functional for NFT purchasing. You have Coinbase account at this
@@ -256,7 +256,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="sell-nfts-item">
-                                    <img src="img/icons/nfts_03.png" alt="" class="icon">
+                                    <img src="/img/icons/nfts_03.png" alt="" class="icon">
                                     <span class="step-count">go step 3</span>
                                     <h5 class="title">Add Your NFTs</h5>
                                     <p>Wallet that is functional for NFT purchasing. You have Coinbase account at this
@@ -265,7 +265,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="sell-nfts-item">
-                                    <img src="img/icons/nfts_04.png" alt="" class="icon">
+                                    <img src="/img/icons/nfts_04.png" alt="" class="icon">
                                     <span class="step-count">go step 4</span>
                                     <h5 class="title">List Them For Sale</h5>
                                     <p>Wallet that is functional for NFT purchasing. You have Coinbase account at this
@@ -284,7 +284,7 @@
                     <div class="row mb-35">
                         <div class="col-md-7 col-sm-8">
                             <div class="section-title">
-                                <h2 class="title">Explore Product <img src="img/icons/title_icon01.png" alt=""></h2>
+                                <h2 class="title">Explore Product <img src="/img/icons/title_icon01.png" alt=""></h2>
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-4">
@@ -297,16 +297,16 @@
                         <div class="row">
                             <div class="col-12">
                                 <ul class="category-list">
-                                    <li class="active"><a href="index"><img src="img/icons/cat_001.png" alt=""> All</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_01.png" alt=""> Games</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_02.png" alt=""> Art</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_03.png" alt=""> Trading Cards</a>
+                                    <li class="active"><a href="index"><img src="/img/icons/cat_001.png" alt=""> All</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_01.png" alt=""> Games</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_02.png" alt=""> Art</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_03.png" alt=""> Trading Cards</a>
                                     </li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_04.png" alt=""> Music</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_05.png" alt=""> Domain Names</a>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_04.png" alt=""> Music</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_05.png" alt=""> Domain Names</a>
                                     </li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_06.png" alt=""> Memes</a></li>
-                                    <li><a href="nft-marketplace"><img src="img/icons/cat_07.png" alt=""> Collectibles</a>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_06.png" alt=""> Memes</a></li>
+                                    <li><a href="nft-marketplace"><img src="/img/icons/cat_07.png" alt=""> Collectibles</a>
                                     </li>
                                 </ul>
                             </div>
@@ -318,7 +318,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -335,7 +335,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection01.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection01.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">NFT Collection</a> <span class="price">5.4
@@ -354,7 +354,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -371,7 +371,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection05.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection05.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">Colorful Abstract</a> <span class="price">5.4
@@ -390,7 +390,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -407,7 +407,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="nft-marketplace"><img src="img/others/top_collection06.jpg" alt=""></a>
+                                    <a href="nft-marketplace"><img src="/img/others/top_collection06.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="nft-marketplace">The Girl Firefly</a> <span class="price">5.4
@@ -426,7 +426,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -443,7 +443,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection07.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection07.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">Forest Princess</a> <span class="price">5.4
@@ -462,7 +462,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -479,7 +479,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection08.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection08.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">NFT Painting</a> <span class="price">5.4
@@ -498,7 +498,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -515,7 +515,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection09.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection09.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">Colorful Abstract</a> <span class="price">5.4
@@ -534,7 +534,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -551,7 +551,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection10.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection10.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">Bid Collection</a> <span class="price">5.4
@@ -570,7 +570,7 @@
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img
-                                                    src="img/others/top_col_avatar.png" alt=""></a>By <a
+                                                    src="/img/others/top_col_avatar.png" alt=""></a>By <a
                                                 href="author-profile" class="name">Jonson</a></li>
                                         <li class="info-dots dropdown">
                                             <span></span>
@@ -587,7 +587,7 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img src="img/others/top_collection11.jpg" alt=""></a>
+                                    <a href="market-single"><img src="/img/others/top_collection11.jpg" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
                                     <h5 class="title"><a href="market-single">NFT Collection</a> <span class="price">5.4
@@ -612,7 +612,7 @@
                     <div class="row">
                         <div class="col-md-7">
                             <div class="section-title mb-45">
-                                <h2 class="title">Latest News Update <img src="img/icons/title_icon01.png" alt=""></h2>
+                                <h2 class="title">Latest News Update <img src="/img/icons/title_icon01.png" alt=""></h2>
                             </div>
                         </div>
                     </div>
@@ -620,7 +620,7 @@
                         <div class="col-xl-4 col-md-6 col-sm-9">
                             <div class="latest-news-item">
                                 <div class="latest-news-thumb">
-                                    <img src="img/blog/news_thumb01.png" alt="">
+                                    <img src="/img/blog/news_thumb01.png" alt="">
                                 </div>
                                 <div class="latest-news-content">
                                     <ul class="latest-news-meta">
@@ -636,7 +636,7 @@
                         <div class="col-xl-4 col-md-6 col-sm-9">
                             <div class="latest-news-item">
                                 <div class="latest-news-thumb">
-                                    <img src="img/blog/news_thumb02.png" alt="">
+                                    <img src="/img/blog/news_thumb02.png" alt="">
                                 </div>
                                 <div class="latest-news-content">
                                     <ul class="latest-news-meta">
@@ -652,7 +652,7 @@
                         <div class="col-xl-4 col-md-6 col-sm-9">
                             <div class="latest-news-item">
                                 <div class="latest-news-thumb">
-                                    <img src="img/blog/news_thumb03.png" alt="">
+                                    <img src="/img/blog/news_thumb03.png" alt="">
                                 </div>
                                 <div class="latest-news-content">
                                     <ul class="latest-news-meta">
@@ -728,7 +728,7 @@
                                 <div class="testimonial-active">
                                     <div class="testimonial--item text-center">
                                         <div class="testimonial-rating">
-                                            <img src="img/others/star.png" alt="">
+                                            <img src="/img/others/star.png" alt="">
                                         </div>
                                         <div class="testimonial--content">
                                             <p>“ What even is an NFT? NFT stands for non-fungible token, which basically
@@ -743,7 +743,7 @@
                                     </div>
                                     <div class="testimonial--item text-center">
                                         <div class="testimonial-rating">
-                                            <img src="img/others/star.png" alt="">
+                                            <img src="/img/others/star.png" alt="">
                                         </div>
                                         <div class="testimonial--content">
                                             <p>“ What even is an NFT? NFT stands for non-fungible token, which basically
@@ -758,7 +758,7 @@
                                     </div>
                                     <div class="testimonial--item text-center">
                                         <div class="testimonial-rating">
-                                            <img src="img/others/star.png" alt="">
+                                            <img src="/img/others/star.png" alt="">
                                         </div>
                                         <div class="testimonial--content">
                                             <p>“ What even is an NFT? NFT stands for non-fungible token, which basically
@@ -855,7 +855,6 @@ onBeforeMount(() => {
 
         await  nextTick()
         loadingStore.set(false)
-        console.log(loadingStore.isLoading)
     })
 })
 

@@ -25,5 +25,8 @@ loadingStore.$subscribe((mutation, state) => {
     if (state.loading === false) {
             $('#preloader').delay(0).fadeOut();
     }
+    if (state.loading === true) {
+            $('#preloader').delay(0).fadeIn();
+    }
 })
 </script>

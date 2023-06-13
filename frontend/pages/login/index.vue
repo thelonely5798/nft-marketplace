@@ -113,6 +113,10 @@ import Web3 from "web3"
 import { NetworkType } from "~/service";
 import { useNetworkStore } from "~/store/network";
 import { NetworkChainID } from "@/constants/chainId"
+import { useLoadingStore } from "~/store/loading";
+
+const loadingStore = useLoadingStore()
+loadingStore.set(false)
 const connectNetwork = async () => {
     IConnectFactory.getConnect(ConnectType.MetaMask).then(async () => {
        

@@ -5,7 +5,7 @@
         <div class="offcanvas-inner scroll">
             <div class="author-profile text-center mb-30">
                 <div class="author-img">
-                    <img src="img/others/author_img.png" alt="">
+                    <img src="/img/others/author_img.png" alt="">
                 </div>
                 <div class="author-content">
                     <h4 class="title">{{ contractName(userStore.getAddress) }}</h4>

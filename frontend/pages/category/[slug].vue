@@ -79,8 +79,8 @@
                                 </div>
                                 <div class="collection-item-bottom">
                                     <ul>
-                                        <li class="bid"><a href="market-single.html" class="btn">Explore</a></li>
-                                        <li class="wishlist"><a href="login-register.html">59</a></li>
+                                        <li class="bid"><NuxtLink :href="Routes.Collection + '/' + collection.slug" class="btn">Explore</NuxtLink></li>
+                                        <!-- <li class="wishlist"><a href="login-register.html">59</a></li> -->
                                     </ul>
                                 </div>
                             </div>

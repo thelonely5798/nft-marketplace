@@ -20,7 +20,8 @@ const network = useNetworkStore().getNetwork
 
 onBeforeMount(() => {
   const main = document.createElement("script")
-  main.src = "js/main.js"
+  main.src = "/js/main.js"
+  main.defer = true
   document.body.append(main)
 
   ///

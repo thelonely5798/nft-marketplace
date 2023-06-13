@@ -4,7 +4,6 @@ import { CategoryController } from './category.controller';
 
 
 @Module({
-  imports: [CacheModule.register({isGlobal: true, ttl: 3600})],
   controllers: [CategoryController],
   providers: [CategoryService]
 })

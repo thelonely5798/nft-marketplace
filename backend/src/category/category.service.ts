@@ -1,6 +1,6 @@
 import { CacheTTL } from '@nestjs/cache-manager';
-import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
-import axios from 'axios';
+import { BadRequestException, CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import axios, { HttpStatusCode } from 'axios';
 import { Cache, memoryStore } from 'cache-manager';
 
 const _ = require("lodash")
@@ -36,6 +36,10 @@ export class CategoryService {
     try {
 
       const response = await axios.request(options)
+      
+      if(response.status !== HttpStatusCode.Ok) {
+        throw new BadRequestException("Unhanlded Error")
+      }
       const data = _.chain(response.data.data.trendingCollectionsByCategoryTagBatched)
         .groupBy('tag.slug')
         .map((value, key) => ({ slug: key, collections: value.map(v => v.collection), name: _.chain(key).capitalize().split("-").join(" ").value() }))
@@ -74,6 +78,9 @@ export class CategoryService {
       }
 
       const response = await axios.request(options)
+      if(response.status !== HttpStatusCode.Ok) {
+        throw new BadRequestException("Unhanlded Error")
+      }
       const data = response.data.data.trendingTagsByCategory
 
 
@@ -103,6 +110,9 @@ export class CategoryService {
 
     try {
       const response = await axios.request(options)
+      if(response.status !== HttpStatusCode.Ok) {
+        throw new BadRequestException("Unhanlded Error")
+      }
       const data = response.data.data.categoriesV2
       return data
 
@@ -140,6 +150,9 @@ export class CategoryService {
 
     try {
       const response = await axios.request(options)
+      if(response.status !== HttpStatusCode.Ok) {
+        throw new BadRequestException("Unhanlded Error")
+      }
       const data = response.data.data.categoriesV2
       return data
 
@@ -147,7 +160,7 @@ export class CategoryService {
       return error.message
     }
   }
-
+ 
   async getCategoryScrollerQuery(slug: string) {
     const options = {
       method: 'POST',
@@ -167,9 +180,12 @@ export class CategoryService {
         }
       }
     }
-    console.log(slug)
     try {
       const response = await axios.request(options)
+      if(response.status !== HttpStatusCode.Ok) {
+        console.log(response)
+        throw new BadRequestException("Unhanlded Error")
+      }
       const data = response.data.data.trendingCollectionsByCategory.edges
       return data.map(d => d.node)
 

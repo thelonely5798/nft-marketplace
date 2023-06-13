@@ -1,5 +1,6 @@
 import { ResponseInterface, httpRequest } from "~/api/axios";
 import { Arbitrum } from "./arbitrum";
+import { GetCollectionAssetSearchListPaginationQueryDTO } from "~/types";
 
 
 export enum NetworkType {
@@ -56,6 +57,21 @@ export class Network {
 
     async getCategoryScrollerQuery(slug: string) {
         const response = await httpRequest.get(`category/${slug}/category-scroller-query`)
+        return response.data
+    }
+
+    async getCollectionAssetSearchListPaginationQuery(data: GetCollectionAssetSearchListPaginationQueryDTO) {
+        const response = await httpRequest.post(`/collection/asset-search-list-pagination-query`, data)
+        return response.data
+    }
+
+    async getCollectionPageQuery(data: any) {
+        const response = await httpRequest.post(`/collection/page-query`, data)
+        return response.data
+    }
+
+    async getAssetPageQuery(data: any) {
+        const response = await httpRequest.post(`/assets/page-query`, data)
         return response.data
     }
 }

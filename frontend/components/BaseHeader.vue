@@ -8,7 +8,7 @@
                         <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
                         <div class="menu-wrap">
                             <nav class="menu-nav">
-                                <div class="logo"><a :href="Routes.Home"><img src="img/logo/naftmak.svg" alt=""></a></div>
+                                <div class="logo"><a :href="Routes.Home"><img src="/img/logo/naftmak.svg" alt=""></a></div>
                                 <div class="header-form">
                                     <form action="#">
                                         <button><i class="flaticon-search"></i></button>
@@ -56,7 +56,7 @@
                         <div class="mobile-menu">
                             <nav class="menu-box">
                                 <div class="close-btn"><i class="fas fa-times"></i></div>
-                                <div class="nav-logo"><a href="/"><img src="img/logo/logo.png" alt="" title=""></a>
+                                <div class="nav-logo"><a href="/"><img src="/img/logo/logo.png" alt="" title=""></a>
                                 </div>
                                 <div class="menu-outer">
                                     <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->

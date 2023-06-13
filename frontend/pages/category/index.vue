@@ -72,15 +72,15 @@
                                             :src="collection.banner" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
-                                    <h6 class="title"><a href="market-single.html">{{ collection.name }}</a></h6>
+                                    <h6 class="title"><NuxtLink :href="Routes.Collection + '/' + collection.slug">{{ collection.name }}</NuxtLink></h6>
                                     <!-- <h6 class="title"><a href="market-single.html">Floor Price</a> <span class="price">{{
                                         collection.windowCollectionStats.floorPrice?.unit }} {{
         collection.windowCollectionStats.floorPrice?.symbol }} </span></h6> -->
                                 </div>
                                 <div class="collection-item-bottom">
                                     <ul>
-                                        <li class="bid"><a href="market-single.html" class="btn">Explore</a></li>
-                                        <li class="wishlist"><a href="login-register.html">59</a></li>
+                                        <li class="bid"><NuxtLink :href="Routes.Collection + '/' + collection.slug" class="btn">Explore</NuxtLink></li>
+                                        <!-- <li class="wishlist"><a href="login-register.html">59</a></li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -98,11 +98,9 @@
 <script  setup lang="ts">
 import { onMounted, onBeforeMount } from "vue"
 import { useNetworkStore } from "~/store/network";
-import { Category } from "./types"
 import { useLoadingStore } from "~/store/loading";
 import Routes from "~/constants/routes";
-import { Collection } from "./types";
-
+import { Category } from "./types"
 
 const network = useNetworkStore().getNetwork
 
@@ -113,10 +111,8 @@ const carouselQuery = ref([])
 
 onBeforeMount(async () => {
     $('#preloader').delay(0).fadeIn();
-    Promise.all([
-        getCarouselQuery(),
-        getCategoryByTrendingTagList()
-    ])
+    await getCarouselQuery(),
+    await getCategoryByTrendingTagList()
 })
 onMounted(async () => {
     nextTick(() => {
@@ -182,7 +178,6 @@ const getCategoryByTrendingTagList = async () => {
     const promises = category.value.map(async (c) => async function() {
         c.collections = await getCategoryScrollerQuery(c.slug)
     }())
-    console.log(promises)
     Promise.all(promises).then(() => {
         activeSlick()
         loadingStore.set(false)
@@ -208,8 +203,8 @@ const getDataForHeader = () => {
     }))
 }
 
-const getCategoryScrollerQuery = async (slug: string): Promise<Array<Collection>> => {
-    const data = await network.getCategoryScrollerQuery(slug) as Array<Collection>
+const getCategoryScrollerQuery = async (slug: string): Promise<Array<any>> => {
+    const data = await network.getCategoryScrollerQuery(slug) as Array<any>
     return data
 }
 </script>

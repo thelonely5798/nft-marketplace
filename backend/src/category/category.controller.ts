@@ -28,8 +28,8 @@ export class CategoryController {
     return await this.categoryService.getCarouselQuery()
   }
 
-  // @CacheTTL(3600)
-  // @UseInterceptors(CacheInterceptor)
+  @CacheTTL(3600)
+  @UseInterceptors(CacheInterceptor)
   @Get('/:slug/category-scroller-query')
   async getCategoryScrollerQuery(@Param() param: any) {
     const slug = param.slug
