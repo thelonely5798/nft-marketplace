@@ -38,7 +38,7 @@
                                             href="login-register">statistics.</a></p>
                                 </div>
                                 <div class="welcome-rating">
-                                    <img src="img/icons/three_star.png" alt="">
+                                    <img src="/img/icons/three_star.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -86,13 +86,13 @@
                                 <p>The top NFTs on Nftmar, ranked by volume, floor price and other.</p>
                                 <ul class="another-way-list">
                                     <li @click="connectNetwork()"><a href="javascript:void(0)"><img
-                                                src="img/icons/signup_icon01.png" alt="">MetaMask
+                                                src="/img/icons/signup_icon01.png" alt="">MetaMask
                                             <span>Popular</span></a></li>
-                                    <li><a href="#"><img src="img/icons/signup_icon02.png" alt="">Coinbase Wallet</a>
+                                    <li><a href="#"><img src="/img/icons/signup_icon02.png" alt="">Coinbase Wallet</a>
                                     </li>
-                                    <li><a href="#"><img src="img/icons/signup_icon03.png" alt="">Wallet Connect</a>
+                                    <li><a href="#"><img src="/img/icons/signup_icon03.png" alt="">Wallet Connect</a>
                                     </li>
-                                    <li><a href="#"><img src="img/icons/signup_icon04.png" alt="">Fortmatic</a></li>
+                                    <li><a href="#"><img src="/img/icons/signup_icon04.png" alt="">Fortmatic</a></li>
                                 </ul>
                             </div>
                         </div>
