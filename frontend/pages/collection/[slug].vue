@@ -425,6 +425,7 @@ const getAssetsLink = (item: NftItem) => {
     border: 6px solid rgb(255, 255, 255);
     position: absolute;
     border-radius: 10px;
+    background-size: contain;
 }
 
 .collection-info {
