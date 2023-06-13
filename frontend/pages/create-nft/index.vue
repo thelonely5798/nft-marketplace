@@ -54,7 +54,7 @@
                                         </ul>
                                     </div>
                                     <div class="collection-item-thumb">
-                                        <a href="market-single"><img src="img/others/top_collection06.jpg" alt=""></a>
+                                        <a href="market-single"><img src="/img/others/top_collection06.jpg" alt=""></a>
                                     </div>
                                     <div class="collection-item-content">
                                         <h5 class="title"><a href="market-single">NFT Collection</a> <span class="price">5.4
