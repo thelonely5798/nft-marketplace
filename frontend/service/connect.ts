@@ -6,7 +6,6 @@ import { NetworkType } from '.';
 import { NetworkChainID } from '~/constants/chainId';
 import { useUserStore } from '~/store/user';
 // This returns the provider, or null if it wasn't detected.
-const provider = await detectEthereumProvider();
 
 
 export enum ConnectType {
@@ -45,7 +44,7 @@ class MetaMask implements ConnectInterface {
             });
         }
     }
-    async  startApp(provider: any) {
+    async startApp(provider: any) {
         // If the provider returned by detectEthereumProvider isn't the same as
         // window.ethereum, something is overwriting it – perhaps another wallet.
         if (provider !== window.ethereum) {
@@ -60,8 +59,10 @@ class MetaMask implements ConnectInterface {
 
         }
     }
-    connect(): void {
+    async connect(): void {
         try {
+            const provider = await detectEthereumProvider();
+
             if (provider) {
                 // From now on, this should always be true:
                 // provider === window.ethereum
