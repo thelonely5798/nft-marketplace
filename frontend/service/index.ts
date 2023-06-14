@@ -15,6 +15,7 @@ export interface NetworkStrategy {
     getName() : string
     getCurrency(): string
     getNetworkType(): NetworkType
+    createCollection(data: any, callback: Function): void
 }
 
 export class Network {
@@ -44,6 +45,10 @@ export class Network {
     }
     getNetworkType(): NetworkType {
         return this.network.getNetworkType()
+    }
+
+    createCollection(data: any, callback: Function) {
+        return this.network.createCollection(data, callback)
     }
     async getCategoryByTrendingTagList(slug: string) {
         const response = await httpRequest.get(`category/${slug}/trending-tag-list`)

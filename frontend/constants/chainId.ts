@@ -1,5 +1,5 @@
 export enum NetworkChainID {
-    Etherum = 1, 
+    Etherum = 11155111, 
     Arbitrum = 42161,
     Polygon = 137
 

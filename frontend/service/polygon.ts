@@ -3,6 +3,9 @@ import { NetworkStrategy, NetworkType } from ".";
 
 
 export class Polygon implements NetworkStrategy {
+    createCollection(data: any): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
     getNetworkType(): NetworkType {
         return NetworkType.Arbitrum
     }

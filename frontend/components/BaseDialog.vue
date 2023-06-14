@@ -29,10 +29,11 @@
               <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <button type="button"
                   class=" h-auto w-auto justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                  @click="onCancel()">{{ okText }}</button>
+                  @click="onSubmit()">{{ okText }}</button>
                 <button type="button"
                   class=" h-auto w-auto justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                  @click="onSubmit()">{{ cancelText }}</button>
+                  @click="oncanplay()">
+                  {{ cancelText }}</button>
               </div>
             </DialogPanel>
           </TransitionChild>

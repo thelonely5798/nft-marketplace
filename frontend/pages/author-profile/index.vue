@@ -336,52 +336,89 @@
     </div>
 
     <Teleport to="body">
-        <BaseDialog title="Create Collection" :open="openDialog" :on-cancel="() => openDialog = false"
-            :on-submit="() => openDialog = false">
+        <BaseDialog title="Create Collection" :open="openDialog" :on-cancel="() => openDialog = false" :on-submit="deploy">
 
 
-            <form>
 
-                <div class="mb-6">
-                    <label for="email" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Name</label>
-                    <input type="email" id="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="My Collection Name" required>
+            <div class="mb-6">
+                <label for="email" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Name</label>
+                <input v-model="createCollectionForm.name" type="email" id="email"
+                    class="bg-white border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="My Collection Name" required>
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Token
+                    symbol</label>
+                <p class="text-gray-900">The token symbol is shown on the block explorer when others view your smart
+                    contract.</p>
+                <input v-model="createCollectionForm.symbol" type="text" id="password"
+                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="ECM" required>
+            </div>
+            <div class="mb-6">
+                <label for="confirm_password"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chain</label>
+                <BaseListBox :options="networkOptions" />
+            </div>
+            <div class="flex items-start mb-6">
+                <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" value=""
+                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                        required>
                 </div>
-                <div class="mb-6">
-                    <label for="password"
-                        class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Token symbol</label>
-                        <p class="text-gray-900">The token symbol is shown on the block explorer when others view your smart contract.</p>
-                    <input type="text" id="password"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="ECM" required>
-                </div>
-                <div class="mb-6">
-                    <label for="confirm_password"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chain</label>
-                        <BaseListBox/>
-                </div>
-                <div class="flex items-start mb-6">
-                    <div class="flex items-center h-5">
-                        <input id="remember" type="checkbox" value=""
-                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                            required>
-                    </div>
-                    <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the
-                        <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and
-                            conditions</a>.</label>
-                </div>
-                <button type="submit"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </form>
-
-    </BaseDialog>
-</Teleport>
-<!-- main-content-end --></template>
+                <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the
+                    <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and
+                        conditions</a>.</label>
+            </div>
+        </BaseDialog>
+    </Teleport>
+    <!-- main-content-end -->
+</template>
 <script setup lang="ts">
 import { useLoadingStore } from '~/store/loading';
+import { MessageTypeEnum, useToast } from '~/store/toast';
+import Collection from "@/contracts/build/contracts/Collection.json"
+import Web3 from 'web3';
+import _ from "lodash"
+import { useNetworkStore } from '~/store/network';
+const networkOptions = [
+    {
+        label: "Etherum",
+        value: "etherum"
+    },
+    {
+        label: "Polygon",
+        value: "polygon"
+    },
+    {
+        label: "Arbitrum",
+        value: "arbitrum"
+    },
+]
 
+const createCollectionForm = reactive({
+    name: "",
+    symbol: ""
+})
 const loadingStore = useLoadingStore()
-const openDialog = ref(true)
+const network = useNetworkStore().getNetwork
+const openDialog = ref(false)
+const toast = useToast()
 loadingStore.set(false)
+
+const deploy = () => {
+    if(_.isEmpty(createCollectionForm.name) || _.isEmpty(createCollectionForm.symbol)) {
+        toast.show({message: "Field is not empty", type: MessageTypeEnum.SUCCESS})
+        return
+    }
+    toggleLoadingOverlay()
+    network.createCollection(createCollectionForm, (res:any, err: any) => {
+        openDialog.value = false
+        toggleLoadingOverlay()
+        setTimeout(()=>{
+            toast.show({message: "Create collection successful", type: MessageTypeEnum.SUCCESS})
+        }, 500)
+    })
+
+}
 </script>

@@ -4,6 +4,9 @@
     <BaseLoading />
     <NuxtPage />
     <BaseFooter />
+    <BaseLoadingOverlay/>
+    <BaseToast v-for="(notification, index) in getNotifications" :messageType="notification.type" :index="index"
+      :message="notification.message" />
   </div>
 </template>
 
@@ -14,9 +17,11 @@ import { NetworkType } from "./service";
 import { ConnectType, IConnectFactory } from "./service/connect";
 import { useRoute } from 'vue-router';
 import { useLoadingStore } from "@/store/loading"
+import { useToast } from "./store/toast";
 
 const route = useRoute();
 const network = useNetworkStore().getNetwork
+const { getNotifications } = useToast()
 
 onBeforeMount(() => {
   const main = document.createElement("script")

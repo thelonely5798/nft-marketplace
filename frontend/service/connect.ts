@@ -33,15 +33,19 @@ interface ConnectInterface {
 
 class MetaMask implements ConnectInterface {
     async verify(): Promise<any> {
-        const network = useNetworkStore().getNetwork
-        let web3 = new Web3(window.ethereum)
-        let chainId = await window.ethereum.request({ method: 'eth_chainId' });
-        chainId = web3.utils.hexToNumber(chainId)
-        if (network.getNetworkType() === NetworkType.Etherum && chainId !== NetworkChainID.Etherum) {
-            await window.ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: web3.utils.toHex(NetworkChainID.Etherum) }]
-            });
+        try {
+            const network = useNetworkStore().getNetwork
+            let web3 = new Web3(window.ethereum)
+            let chainId = await window.ethereum.request({ method: 'eth_chainId' });
+            chainId = web3.utils.hexToNumber(chainId)
+            if (network.getNetworkType() === NetworkType.Etherum && chainId !== NetworkChainID.Etherum) {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: web3.utils.toHex(NetworkChainID.Etherum) }]
+                });
+            }
+        } catch (err) {
+            return new Error("Unhandled error")
         }
     }
     async startApp(provider: any) {
