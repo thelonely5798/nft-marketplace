@@ -122,3 +122,11 @@
         <!-- main-area-end -->
 </div>
 <!-- main-content-end --></template>
+
+<script setup lang="ts">
+import { useLoadingStore } from '~/store/loading';
+
+
+const loadingStore = useLoadingStore()
+loadingStore.set(false)
+</script>

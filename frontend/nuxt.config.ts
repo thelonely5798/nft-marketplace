@@ -32,7 +32,9 @@ export default defineNuxtConfig({
     },
     ssr: false,
     modules: [
-        "@pinia/nuxt"
+        "@pinia/nuxt",
+        '@nuxtjs/tailwindcss'
+
     ],
     vite: {
         plugins: [
