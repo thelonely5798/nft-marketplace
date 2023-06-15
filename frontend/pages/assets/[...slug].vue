@@ -562,7 +562,7 @@ import { useNetworkStore } from "~/store/network";
 import { NftInterface } from "./types";
 import { useLoadingStore } from "~/store/loading";
 import dayjs from "dayjs"
-import * as duration from "dayjs/plugin/duration"
+import duration from "dayjs/plugin/duration"
 dayjs.extend(duration)
 
 const route = useRoute()
