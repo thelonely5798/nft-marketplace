@@ -68,8 +68,8 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single.html"><img :style="{ width: '100%', height: '200px' }"
-                                            :src="collection.banner" alt=""></a>
+                                    <NuxtLink :href="Routes.Collection + '/' + collection.slug"><img :style="{ width: '100%', height: '200px' }"
+                                            :src="collection.banner" alt=""></NuxtLink>
                                 </div>
                                 <div class="collection-item-content">
                                     <h6 class="title"><NuxtLink :href="Routes.Collection + '/' + collection.slug">{{ collection.name }}</NuxtLink></h6>
