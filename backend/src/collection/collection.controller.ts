@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, CacheTTL, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, CacheTTL, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { CollectionService } from './collection.service';
 import { GetCollectionAssetSearchListPaginationQueryDTO, GetPageQueryDTO } from './dto';
 
@@ -18,5 +18,9 @@ export class CollectionController {
   @CacheTTL(3600)
   async getPageQuery(@Body() req: GetPageQueryDTO) {
     return this.collectionService.getCollectionPageQuery(req.collection)
+  }
+  @Get(":address")
+  getCollectionByAddress(@Param() params: any) {
+     return this.collectionService.getCollectionByAddress(params.address)
   }
 }

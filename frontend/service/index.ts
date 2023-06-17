@@ -91,4 +91,9 @@ export class Network {
         const request = await httpRequest.get("/account/profile/" + address)
         return request.data
     }
+
+    async getCollectionByContract(address: string): Promise<any> {
+        const request = await httpRequest.get("/collection/" + address)
+        return request.data
+    }
 }

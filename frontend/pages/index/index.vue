@@ -89,7 +89,7 @@
                     </div>
                     <div class="row top-collection-active">
                         <div v-for="nft in getTopCollections" class="col-xl-3">
-                            <div class="top-collection-item">
+                            <div class="top-collection-item hover:cursor-pointer" @click="navigate(nft.contract_address)">
                                 <div class="collection-item-top">
                                     <ul>
                                         <li class="avatar"><a href="author-profile" class="thumb"><img :src="nft.logo_url"
@@ -110,11 +110,11 @@
                                     </ul>
                                 </div>
                                 <div class="collection-item-thumb">
-                                    <a href="market-single"><img :style="{ width: '100%', height: '200px' }"
+                                    <a href="javascript:void(0)"><img :style="{ width: '100%', height: '200px' }"
                                             :src="nft.banner_url" alt=""></a>
                                 </div>
                                 <div class="collection-item-content">
-                                    <h5 class="title"><a href="market-single">{{ nft.name }}</a> <span class="price">{{
+                                    <h5 class="title"><a href="javascript:void(0)">{{ nft.name }}</a> <span class="price">{{
                                         _.floor(nft.floor_price, 2) }}
                                             ETH</span></h5>
                                 </div>
@@ -873,6 +873,12 @@ async function fetchTopSeller() {
 }
 const getTopCollections = computed(() => topCollections.value)
 
-
+const navigate = async (address: string) => {
+    const {data: {collection}} = await network.getCollectionByContract(address)
+    const router = useRouter()
+    if(!_.isEmpty(collection.slug)) {
+      router.push(pathCombine([Routes.Collection, collection.slug]))
+    }
+}
 </script>
 
