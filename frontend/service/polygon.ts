@@ -10,10 +10,10 @@ export class Polygon implements NetworkStrategy {
         return NetworkType.Arbitrum
     }
     getName(): string {
-       return "Polygon"
+        return "Polygon"
     }
     getCurrency(): string {
-       return "MATIC"
+        return "MATIC"
     }
     async getCollectionsByTradingVolume(): Promise<ResponseInterface> {
         const request = await httpRequest.get("polygon/collection/trading-volume")

@@ -18,15 +18,15 @@ export default defineNuxtConfig({
     app: {
         head: {
             script: [
-                {src: "/js/vendor/jquery-3.6.0.min.js"},
-                {src: "/js/bootstrap.min.js", },
-                {src: "/js/isotope.pkgd.min.js" },
-                {src: "/js/imagesloaded.pkgd.min.js" },
-                {src: "/js/jquery.magnific-popup.min.js" },
-                {src: "/js/jquery.mCustomScrollbar.concat.min.js" },
-                {src: "/js/slick.min.js" },
-                {src: "/js/wow.min.js" },
-                {src: "/js/plugins.js" },
+                { src: "/js/vendor/jquery-3.6.0.min.js" },
+                { src: "/js/bootstrap.min.js", },
+                { src: "/js/isotope.pkgd.min.js" },
+                { src: "/js/imagesloaded.pkgd.min.js" },
+                { src: "/js/jquery.magnific-popup.min.js" },
+                { src: "/js/jquery.mCustomScrollbar.concat.min.js" },
+                { src: "/js/slick.min.js" },
+                { src: "/js/wow.min.js" },
+                { src: "/js/plugins.js" },
             ],
         }
     },
@@ -38,8 +38,11 @@ export default defineNuxtConfig({
     ],
     vite: {
         plugins: [
-          nodePolyfills(),
+            nodePolyfills(),
         ],
-      },
-      
+    },
+    sourcemap: {
+        server: true,
+        client: true
+    }
 })

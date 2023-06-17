@@ -10,9 +10,10 @@ import { ConfigModule } from '@nestjs/config';
 import { CollectionModule } from './collection/collection.module';
 import { AssetsModule } from './assets/assets.module';
 import { OrdersModule } from './orders/orders.module';
+import { AccountModule } from './account/account.module';
 
 @Module({
-  imports: [EthModule, ArbModule, PolygonModule, CategoryModule, ConfigModule.forRoot(), CollectionModule, CacheModule.register({isGlobal: true, ttl: 3600}), AssetsModule, OrdersModule],
+  imports: [EthModule, ArbModule, PolygonModule, CategoryModule, ConfigModule.forRoot(), CollectionModule, CacheModule.register({isGlobal: true, ttl: 3600}), AssetsModule, OrdersModule, AccountModule],
   controllers: [AppController],
   providers: [AppService],
 })

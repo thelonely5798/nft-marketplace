@@ -22,10 +22,6 @@
                 </div>
             </section>
             <!-- breadcrumb-area-end -->
-
-    
-            <!-- category-area-end -->
-
             <!-- author-profile-area -->
             <div class="author-profile-area">
                 <div class="container">
@@ -75,7 +71,7 @@
                         <div class="col-xl-9 col-lg-8">
                             <div class="author-product-meta flex justify-between">
                                 <ul class="w-full">
-                                    <li class="active"><a href="author-profile">All nft</a></li>
+                                    <li class="active"><a href="#">All nft</a></li>
                                     <li><a href="author-profile">Virtual Worlds</a></li>
                                     <li><a href="author-profile">Collectibles</a></li>
                                     <li><a href="author-profile">Music</a></li>
@@ -91,10 +87,11 @@
                                 <div v-for="nft in collected" class="col-xl-4 col-md-6 col-sm-6">
                                     <div class="top-collection-item">
                                         <div class="collection-item-thumb">
-                                            <a href="market-single"><img :src="nft.node.imageUrl" alt=""></a>
+                                            <a target="_blank" :href="pathCombine([Routes.Collection, nft.node.collection.slug])"><img :src="nft.node.imageUrl"
+                                                    alt=""></a>
                                         </div>
                                         <div class="collection-item-content">
-                                            <h5 class="title"><a href="market-single">{{ nft.node.displayName }}</a> </h5>
+                                            <h5 class="title"><a target="_blank" :href="pathCombine([Routes.Collection, nft.node.collection.slug])">{{ nft.node.displayName }}</a> </h5>
                                         </div>
                                         <div class="collection-item-bottom">
                                             <ul>
@@ -164,7 +161,9 @@ import _ from "lodash"
 import { useNetworkStore } from '~/store/network';
 import { useUserStore } from '~/store/user';
 import { AssetType, Profile, Account } from "./types"
+import Routes from "@/constants/routes"
 
+import { pathCombine } from "@/utils"
 const networkOptions = [
     {
         label: "Etherum",
@@ -195,15 +194,16 @@ const totalCount = ref(0)
 
 const collected = ref<Array<AssetType>>([])
 const account = ref<Partial<Account>>({ address: "", bannerImageUrl: "/img/others/author_profile.png" })
+const route = useRoute()
 
-user.$subscribe((mutation, state) => {
-    if (!_.isEmpty(state.address)) {
+onBeforeMount(() => {
+    const address = route.params.address as string
+    if (!_.isEmpty(address)) {
         Promise.all([
-            getNftsByAccount(state.address),
-            getProfile(state.address)
+            getNftsByAccount(address),
+            getProfile(address)
         ]).then(() => {
             loadingStore.set(false)
-
         })
     }
 })
@@ -231,7 +231,8 @@ const getNftsByAccount = async (address: string, cursor: string = "") => {
     totalCount.value = _totalCount
 }
 const loadMore = async () => {
-    getNftsByAccount(user.getAddress, pageInfo.value.endCursor)
+    const address = route.params.address as string
+    getNftsByAccount(address, pageInfo.value.endCursor)
 }
 
 const getProfile = async (address: string) => {

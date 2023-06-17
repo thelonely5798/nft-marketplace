@@ -5,7 +5,7 @@ import { UpdateEthDto } from './dto/update-eth.dto';
 import { ethers } from "ethers";
 import { VerifyContractDTO } from './dto/verify-contract.dto';
 
-const API_ENDPOINT="https://api-sepolia.etherscan.io/"
+const API_ENDPOINT = "https://api-sepolia.etherscan.io/"
 
 @Controller('eth')
 export class EthController {
@@ -22,6 +22,7 @@ export class EthController {
   }
   @Post("/verify-collection-contract")
   verifyCollectionContract(@Body() body: VerifyContractDTO) {
-      return this.ethService.verifyCollectionContract(body)
+    return this.ethService.verifyCollectionContract(body)
   }
+  
 }

@@ -57,7 +57,7 @@
                                             <img src="/img/others/top-seller-img.jpg" alt="">
                                         </div>
                                         <div class="top-seller-content">
-                                            <h5 class="title"><a href="author-profile">{{
+                                            <h5 class="title"><a target="_blank" :href="Routes.AuthorProfile + '/' + seller.account_address">{{
                                                 contractName(seller.account_address) }}</a></h5>
                                             <p>{{ seller.volume }} <span>Eth</span></p>
                                             <ul class="icon">
@@ -797,6 +797,8 @@ import { NftInterface } from "~/types"
 import * as _ from 'lodash'
 import { useNetworkStore } from "@/store/network"
 import { useLoadingStore } from "~/store/loading";
+import Routes from "@/constants/routes"
+
 const topCollections = ref<Array<NftInterface>>([])
 const topSeller = ref<Array<any>>([])
 

@@ -6,13 +6,13 @@ export enum BaseNftNetworkType  {
     Polygon
 }
 export class BaseNftScan {
-    key: string = "ZpWLKpQnCcVFRQr8TaCcu3wl"
+    static key: string = "ZpWLKpQnCcVFRQr8TaCcu3wl"
 
     static getArbitrumOne(): AxiosInstance {
         let instance = axios.create({
             baseURL: "https://arbitrumapi.nftscan.com/api/",
             headers: {
-                "X-API-KEY": "ZpWLKpQnCcVFRQr8TaCcu3wl"
+                "X-API-KEY": this.key
             }
         })
         return instance
@@ -22,7 +22,7 @@ export class BaseNftScan {
         let instance = axios.create({
             baseURL: "https://restapi.nftscan.com/api/",
             headers: {
-                "X-API-KEY": "ZpWLKpQnCcVFRQr8TaCcu3wl"
+                "X-API-KEY": this.key
             }
         })
         return instance

@@ -5,6 +5,7 @@ import { useNetworkStore } from '~/store/network';
 import { NetworkType } from '.';
 import { NetworkChainID } from '~/constants/chainId';
 import { useUserStore } from '~/store/user';
+import _ from 'lodash';
 // This returns the provider, or null if it wasn't detected.
 
 
@@ -57,10 +58,11 @@ class MetaMask implements ConnectInterface {
         // Access the decentralized web!
         if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
             const accounts = await window?.ethereum?.request({ method: 'eth_requestAccounts' });
-            const userStore = useUserStore()
-            userStore.setAddress(accounts[0])
-            userStore.setConnected(true)
-
+            if (!_.isEmpty(accounts[0])) {
+                const userStore = useUserStore()
+                userStore.setAddress(accounts[0])
+                userStore.setConnected(true)
+            }
         }
     }
     async connect(): void {
