@@ -183,7 +183,6 @@ export class CategoryService {
     try {
       const response = await axios.request(options)
       if(response.status !== HttpStatusCode.Ok) {
-        console.log(response)
         throw new BadRequestException("Unhanlded Error")
       }
       const data = response.data.data.trendingCollectionsByCategory.edges

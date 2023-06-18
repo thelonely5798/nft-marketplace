@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import axios, { HttpStatusCode } from 'axios';
-import { GetCollectionAssetSearchListPaginationQueryDTO } from './dto';
+import { GetCollectionAssetSearchListPaginationQueryDTO, GetCollectionsRankingsByTopDTO, GetCollectionsRankingsByTrendingDTO, } from './dto';
 import { BaseOpenSeaApi } from 'src/core/opensea';
 
 @Injectable()
@@ -68,6 +68,82 @@ export class CollectionService {
             return BaseOpenSeaApi.getInstanceV1().retrievingASingleContract({ asset_contract_address: address })
         } catch (err) {
             return err.message
+        }
+    }
+
+    async getRankingsByTrending(data: GetCollectionsRankingsByTrendingDTO) {
+        const options = {
+            method: 'POST',
+            url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+            headers: {
+                'content-type': 'application/json',
+                'X-Signed-Query': '82e3e1549c27ae11258aecbe7ca0144fa9c7f4c793f2efb02e113b1f165d5fb9',
+                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
+                'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+            },
+            data: {
+                "id": "RankingsPageTrendingQuery",
+                "query": "query RankingsPageTrendingQuery(\n  $chain: [ChainScalar!]\n  $count: Int!\n  $cursor: String\n  $categories: [CategoryV2Slug!]!\n  $eligibleCount: Int!\n  $trendingCollectionsSortBy: TrendingCollectionSort\n  $timeWindow: StatsTimeWindow\n) {\n  ...RankingsPageTrending_data\n}\n\nfragment RankingsPageTrending_data on Query {\n  trendingCollectionsByCategory(after: $cursor, chains: $chain, first: $count, sortBy: $trendingCollectionsSortBy, categories: $categories, topCollectionLimit: $eligibleCount) {\n    edges {\n      node {\n        createdDate\n        name\n        slug\n        logo\n        isVerified\n        relayId\n        ...StatsCollectionCell_collection\n        ...collection_url\n        statsV2 {\n          totalQuantity\n        }\n        windowCollectionStats(statsTimeWindow: $timeWindow) {\n          floorPrice {\n            unit\n            eth\n            symbol\n          }\n          numOwners\n          totalSupply\n          totalListed\n          numOfSales\n          volumeChange\n          volume {\n            unit\n            eth\n            symbol\n          }\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment StatsCollectionCell_collection on CollectionType {\n  name\n  imageUrl\n  isVerified\n  slug\n}\n\nfragment collection_url on CollectionType {\n  slug\n  isCategory\n}\n",
+                "variables": {
+                    "chain": data.chain || null,
+                    "count": 100,
+                    "cursor": null,
+                    "categories": data.categories || [],
+                    "eligibleCount": 500,
+                    "trendingCollectionsSortBy": data.trendingCollectionsSortBy || "ONE_HOUR_SALES",
+                    "timeWindow": data.timeWindow || "ONE_HOUR"
+                  }
+            }
+        }
+        try {
+            const response = await axios.request(options)
+            if (response.status !== HttpStatusCode.Ok) {
+                throw new BadRequestException("Unhanlded Error")
+            }
+            const data = response.data.data.trendingCollectionsByCategory
+            return data
+
+        } catch (error) {
+            return error.message
+        }
+    }
+
+    async getRankingsByTop(data: GetCollectionsRankingsByTopDTO) {
+        const options = {
+            method: 'POST',
+            url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+            headers: {
+                'content-type': 'application/json',
+                'X-Signed-Query': '138b9201d1eb914cc7ad3bf664a2aeca3ab0e4d347a47b0d30cfbb20064c1157',
+                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
+                'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+            },
+            data: {
+                "id": "RankingsPageTopQuery",
+                "query": "query RankingsPageTopQuery(\n  $chain: [ChainScalar!]\n  $count: Int!\n  $cursor: String\n  $sortBy: CollectionSort\n  $topCollectionsSortBy: TrendingCollectionSort\n  $categories: [CategoryV2Slug!]!\n  $timeWindow: StatsTimeWindow\n  $parents: [CollectionSlug!]\n  $createdAfter: DateTime\n) {\n  ...RankingsPageTop_data\n}\n\nfragment RankingsPageTop_data on Query {\n  rankings(after: $cursor, chains: $chain, first: $count, sortBy: $sortBy, parents: $parents, createdAfter: $createdAfter) {\n    edges {\n      node {\n        createdDate\n        name\n        slug\n        logo\n        isVerified\n        relayId\n        ...StatsCollectionCell_collection\n        ...collection_url\n        statsV2 {\n          totalQuantity\n        }\n        windowCollectionStats(statsTimeWindow: $timeWindow) {\n          floorPrice {\n            unit\n            eth\n            symbol\n          }\n          numOwners\n          totalSupply\n          totalListed\n          numOfSales\n          volumeChange\n          volume {\n            eth\n            unit\n            symbol\n          }\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  topCollectionsByCategory(after: $cursor, chains: $chain, first: $count, sortBy: $topCollectionsSortBy, categories: $categories) {\n    edges {\n      node {\n        createdDate\n        name\n        slug\n        logo\n        isVerified\n        relayId\n        ...StatsCollectionCell_collection\n        ...collection_url\n        statsV2 {\n          totalQuantity\n        }\n        windowCollectionStats(statsTimeWindow: $timeWindow) {\n          floorPrice {\n            unit\n            eth\n            symbol\n          }\n          numOwners\n          totalSupply\n          totalListed\n          numOfSales\n          volumeChange\n          volume {\n            eth\n            unit\n            symbol\n          }\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment StatsCollectionCell_collection on CollectionType {\n  name\n  imageUrl\n  isVerified\n  slug\n}\n\nfragment collection_url on CollectionType {\n  slug\n  isCategory\n}\n",
+                "variables": {
+                    "chain": data.chain || null,
+                    "count": 100,
+                    "cursor": data.cursor || null,
+                    "sortBy": data.sortBy || "ONE_HOUR_VOLUME",
+                    "topCollectionsSortBy": data.topCollectionsSortBy || "ONE_HOUR_VOLUME",
+                    "categories": data.categories || [],
+                    "timeWindow": data.timeWindow || "ONE_HOUR",
+                    "parents": data.parents || null,
+                    "createdAfter": data.createdAfter || null
+                }
+            }
+        }
+        try {
+            const response = await axios.request(options)
+            if (response.status !== HttpStatusCode.Ok) {
+                throw new BadRequestException("Unhanlded Error")
+            }
+            const data = response.data.data
+            return data
+
+        } catch (error) {
+            return error.message
         }
     }
 }

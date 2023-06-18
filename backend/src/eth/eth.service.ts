@@ -19,7 +19,6 @@ export class EthService {
   async verifyCollectionContract(req: VerifyContractDTO) {
     try {
       let sourceCode = fs.readFileSync(join(process.cwd(), './src/contracts/Collection.sol'), { encoding: "utf8" })
-      console.log(process.env.ETH_API_KEY)
       let data = JSON.stringify({
         'contractaddress': req.contractaddress,
         'codeformat': 'solidity-single-file',

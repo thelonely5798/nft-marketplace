@@ -4,9 +4,9 @@ import { watch } from 'vue';
 import dayjs from "dayjs"
 
 export enum MessageTypeEnum {
-  SUCCESS,
-  ERROR,
-  WARNING,
+  SUCCESS = "SUCESS",
+  ERROR = "ERROR",
+  WARNING = "WARNING",
 }
 export interface INotification {
   message: string

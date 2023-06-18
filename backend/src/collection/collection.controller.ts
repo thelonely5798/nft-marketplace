@@ -1,12 +1,12 @@
 import { Body, CacheInterceptor, CacheTTL, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { CollectionService } from './collection.service';
-import { GetCollectionAssetSearchListPaginationQueryDTO, GetPageQueryDTO } from './dto';
+import { GetCollectionAssetSearchListPaginationQueryDTO, GetCollectionsRankingsByTopDTO, GetCollectionsRankingsByTrendingDTO, GetPageQueryDTO } from './dto';
 
 @Controller('collection')
 export class CollectionController {
-  constructor(private readonly collectionService: CollectionService) {}
+  constructor(private readonly collectionService: CollectionService) { }
 
-  
+
   @Post("/asset-search-list-pagination-query")
   @UseInterceptors(CacheInterceptor)
   @CacheTTL(3600)
@@ -21,6 +21,15 @@ export class CollectionController {
   }
   @Get(":address")
   getCollectionByAddress(@Param() params: any) {
-     return this.collectionService.getCollectionByAddress(params.address)
+    return this.collectionService.getCollectionByAddress(params.address)
+  }
+
+  @Post("/rankings/trending")
+  getRankingsByTrending(@Body() req: GetCollectionsRankingsByTrendingDTO) {
+    return this.collectionService.getRankingsByTrending(req)
+  }
+  @Post("/rankings/top")
+  getRankingsByTop(@Body() req: GetCollectionsRankingsByTopDTO) {
+    return this.collectionService.getRankingsByTop(req)
   }
 }

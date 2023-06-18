@@ -1,6 +1,7 @@
 import { ResponseInterface, httpRequest } from "~/api/axios";
 import { Arbitrum } from "./arbitrum";
 import { GetCollectionAssetSearchListPaginationQueryDTO } from "~/types";
+import { GetCollectionsRankingsByTopDTO, GetCollectionsRankingsByTrendingDTO } from "./types";
 
 
 export enum NetworkType {
@@ -94,6 +95,15 @@ export class Network {
 
     async getCollectionByContract(address: string): Promise<any> {
         const request = await httpRequest.get("/collection/" + address)
+        return request.data
+    }
+
+    async getCollectionsRankingsByTop(data: GetCollectionsRankingsByTopDTO): Promise<any> {
+        const request = await httpRequest.post("/collection/rankings/top", data)
+        return request.data
+    }
+    async getCollectionsRankingsByTrending(data: Partial<GetCollectionsRankingsByTrendingDTO>): Promise<any> {
+        const request = await httpRequest.post("/collection/rankings/trending", data)
         return request.data
     }
 }
