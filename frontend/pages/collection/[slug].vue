@@ -182,7 +182,7 @@
                                             <a href="market-single"><img :src="item.displayImageUrl" alt=""></a>
                                         </div>
                                         <div class="collection-item-content">
-                                            <h5 class="title"><a href="market-single">{{ item.name }} </a> </h5>
+                                            <h5 class="title"><a :href="getAssetsLink(item)">#{{ item.tokenId }} </a> </h5>
                                             <h5 class="title"><a href="javascript:void(0)">Floor Price</a> <span
                                                     class="price">{{ item.orderData?.bestAskV2?.perUnitPriceType?.unit }} {{
                                                         item.orderData?.bestAskV2?.perUnitPriceType?.symbol }}</span></h5>
