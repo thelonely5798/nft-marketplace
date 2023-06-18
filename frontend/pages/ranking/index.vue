@@ -29,37 +29,37 @@
                             <aside class="activity-sidebar">
                                 <ul class="activity-sidebar-list">
                                     <li>
-                                        <a href="nft-marketplace.html">
+                                        <a href="#">
                                             <div class="icon"><i class="fi-sr-bug"></i></div>
                                             <p>Domain Names <span>find your website name</span></p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="nft-marketplace.html">
+                                        <a href="#">
                                             <div class="icon"><i class="fi-sr-crown"></i></div>
                                             <p>Collectibles</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="nft-marketplace.html">
+                                        <a href="#">
                                             <div class="icon"><i class="fi-sr-mode-landscape"></i></div>
                                             <p>Photography</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="nft-marketplace.html">
+                                        <a href="#">
                                             <div class="icon"><i class="fi-sr-snowflake"></i></div>
                                             <p>Virtual Worlds</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="nft-marketplace.html">
+                                        <a href="#">
                                             <div class="icon"><i class="fi-sr-tennis"></i></div>
                                             <p>Sports</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="nft-marketplace.html">
+                                        <a href="#">
                                             <div class="icon"><i class="fi-sr-vector"></i></div>
                                             <p>Trading Cards</p>
                                         </a>
@@ -152,6 +152,7 @@
                                             <table class="table activity-table">
                                                 <thead>
                                                     <tr>
+                                                        <th scope="col">#</th>
                                                         <th style="width: 250px;" scope="col">Collection</th>
                                                         <th class="w-auto" scope="col">Volume</th>
                                                         <th class="w-auto" scope="col">Total Listed</th>
@@ -160,7 +161,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr v-for="collection in collections">
+                                                    <tr v-for="(collection, index) in collections">
+                                                        <td scope="row">{{ index + 1 }}</td>
                                                         <th scope="row" class="author flex items-center">
                                                             <img height="60" width="60" :src="collection.node.imageUrl"
                                                                 alt="">
@@ -220,10 +222,10 @@
                             <div class="footer-widget">
                                 <h4 class="fw-title">Useful Links</h4>
                                 <ul class="fw-links">
-                                    <li><a href="nft-marketplace.html">All NFTs</a></li>
+                                    <li><a href="#">All NFTs</a></li>
                                     <li><a href="login-register.html">How It Works</a></li>
                                     <li><a href="create-item.html">Create</a></li>
-                                    <li><a href="nft-marketplace.html">Explore</a></li>
+                                    <li><a href="#">Explore</a></li>
                                     <li><a href="login-register.html">Privacy & Terms</a></li>
                                 </ul>
                             </div>
