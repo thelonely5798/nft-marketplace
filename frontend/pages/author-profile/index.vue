@@ -166,7 +166,6 @@ import { useNetworkStore } from '~/store/network';
 import { useUserStore } from '~/store/user';
 import { AssetType, Profile, Account } from "./types"
 import Routes from 'constants/routes';
-import { NuxtLink } from '.nuxt/components';
 
 const networkOptions = [
     {
