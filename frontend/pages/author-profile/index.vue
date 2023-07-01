@@ -75,10 +75,10 @@
                         <div class="col-xl-9 col-lg-8">
                             <div class="author-product-meta flex justify-between">
                                 <ul class="w-full">
-                                    <li class="active"><a href="author-profile">All nft</a></li>
-                                    <li><a href="author-profile">Virtual Worlds</a></li>
-                                    <li><a href="author-profile">Collectibles</a></li>
-                                    <li><a href="author-profile">Music</a></li>
+                                    <li class="active"><a href="#">All nft</a></li>
+                                    <li><a href="#">Virtual Worlds</a></li>
+                                    <li><a href="#">Collectibles</a></li>
+                                    <li><a href="#">Music</a></li>
                                     <li style="margin-left: auto;">
                                         <button type="button" @click="openDialog = true"
                                             class=" h-auto w-auto justify-center rounded-md bg-purple-500	 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-600 sm:ml-3 sm:w-auto">Create
@@ -91,10 +91,10 @@
                                 <div v-for="nft in collected" class="col-xl-4 col-md-6 col-sm-6">
                                     <div class="top-collection-item">
                                         <div class="collection-item-thumb">
-                                            <a href="market-single"><img :src="nft.node.imageUrl" alt=""></a>
+                                            <a href="javascript:void(0)"><img :src="nft.node.imageUrl" alt=""></a>
                                         </div>
                                         <div class="collection-item-content">
-                                            <h5 class="title"><a href="market-single">{{ nft.node.displayName }}</a> </h5>
+                                            <h5 class="title"><NuxtLink :href="Routes.AuthorProfile + '/' + nft.node.displayName">{{ nft.node.displayName }}</NuxtLink> </h5>
                                         </div>
                                         <div class="collection-item-bottom">
                                             <ul>
@@ -106,7 +106,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>Highest bid
+
             </div>
             <!-- author-profile-area-end -->
         </main>
@@ -164,6 +165,8 @@ import _ from "lodash"
 import { useNetworkStore } from '~/store/network';
 import { useUserStore } from '~/store/user';
 import { AssetType, Profile, Account } from "./types"
+import Routes from 'constants/routes';
+import { NuxtLink } from '.nuxt/components';
 
 const networkOptions = [
     {
