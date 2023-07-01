@@ -128,7 +128,7 @@
                     placeholder="My Collection Name" required>
             </div>
             <div class="mb-6">
-                <label for="password" class="block mb-2 text-lg font-medium text-gray-900 >Token
+                <label for="password" class="block mb-2 text-lg font-medium text-gray-900">Token
                     symbol</label>
                 <p class="text-gray-900">The token symbol is shown on the block explorer when others view your smart
                     contract.</p>
