@@ -67,8 +67,8 @@
                                             <div class="thumb"><img :style="{ borderRadius: '50%' }"
                                                     :src="nftInfo.creator?.imageUrl" alt=""></div>
                                             <div class="info">
-                                                <h5 class="title"><a href="author-profile.html">{{
-                                                    nftInfo.creator?.displayName || nftInfo.creator?.displayName }}</a>
+                                                <h5 class="title"><NuxtLink :href="Routes.AuthorProfile + '/' + nftInfo.creator?.address">{{
+                                                    nftInfo.creator?.displayName || nftInfo.creator?.displayName }}</NuxtLink>
                                                 </h5>
                                                 <span>Creators by</span>
                                             </div>
@@ -90,7 +90,7 @@
                                             <div class="highest-bid-avatar">
                                                 <div class="thumb"><img src="/img/others/heighest_avatar.png" alt=""></div>
                                                 <div class="content">
-                                                    <h5 class="title"><a href="author-profile.html">{{  contractName(String(nftInfo.acceptHighestOffer?.bestBid.maker.address)) }}</a></h5>
+                                                    <h5 class="title"><NuxtLink :href="Routes.AuthorProfile + '/' + nftInfo.acceptHighestOffer?.bestBid.maker.address">{{  contractName(String(nftInfo.acceptHighestOffer?.bestBid.maker.address)) }}</NuxtLink></h5>
                                                     <span>{{ nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.unit }}
                                                         {{   nftInfo.acceptHighestOffer?.bestBid.perUnitPriceType.symbol }}</span>
                                                 </div>

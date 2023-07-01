@@ -75,11 +75,11 @@
                                     <li><a href="author-profile">Virtual Worlds</a></li>
                                     <li><a href="author-profile">Collectibles</a></li>
                                     <li><a href="author-profile">Music</a></li>
-                                    <li style="margin-left: auto;">
+                                    <!-- <li style="margin-left: auto;">
                                         <button type="button" @click="openDialog = true"
                                             class=" h-auto w-auto justify-center rounded-md bg-purple-500	 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-600 sm:ml-3 sm:w-auto">Create
                                             Collection</button>
-                                    </li>
+                                    </li> -->
                                 </ul>
 
                             </div>
@@ -93,11 +93,11 @@
                                         <div class="collection-item-content">
                                             <h5 class="title"><a target="_blank" :href="pathCombine([Routes.Collection, nft.node.collection.slug])">{{ nft.node.displayName }}</a> </h5>
                                         </div>
-                                        <div class="collection-item-bottom">
+                                        <!-- <div class="collection-item-bottom">
                                             <ul>
                                                 <li class="bid"><a href="#" class="btn">Listing</a></li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
