@@ -122,23 +122,23 @@
 
 
             <div class="mb-6">
-                <label for="email" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Name</label>
+                <label for="email" class="block mb-2 text-lg font-medium text-gray-900">Name</label>
                 <input v-model="createCollectionForm.name" type="email" id="email"
-                    class="bg-white border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="bg-white border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="My Collection Name" required>
             </div>
             <div class="mb-6">
-                <label for="password" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Token
+                <label for="password" class="block mb-2 text-lg font-medium text-gray-900 >Token
                     symbol</label>
                 <p class="text-gray-900">The token symbol is shown on the block explorer when others view your smart
                     contract.</p>
                 <input v-model="createCollectionForm.symbol" type="text" id="password"
-                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="ECM" required>
             </div>
             <div class="mb-6">
                 <label for="confirm_password"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chain</label>
+                    class="block mb-2 text-sm font-medium text-gray-900">Chain</label>
                 <BaseListBox :options="networkOptions" />
             </div>
             <div class="flex items-start mb-6">
@@ -167,16 +167,8 @@ import { AssetType, Profile, Account } from "./types"
 
 const networkOptions = [
     {
-        label: "Etherum",
+        label: "Etherum Testnet",
         value: "etherum"
-    },
-    {
-        label: "Polygon",
-        value: "polygon"
-    },
-    {
-        label: "Arbitrum",
-        value: "arbitrum"
     },
 ]
 
