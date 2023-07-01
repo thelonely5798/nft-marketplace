@@ -165,7 +165,7 @@ import _ from "lodash"
 import { useNetworkStore } from '~/store/network';
 import { useUserStore } from '~/store/user';
 import { AssetType, Profile, Account } from "./types"
-import Routes from 'constants/routes';
+import Routes from '~/constants/routes';
 
 const networkOptions = [
     {
