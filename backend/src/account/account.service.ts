@@ -8,12 +8,12 @@ export class AccountService {
   async getNftsByAccount(address: string, cursor: string = "") {
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': '2ea4c8067148a5caa0da5ad4187864b296cce5aee995970ebf805a38c8c07880',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "AccountCollectedAssetSearchListPaginationQuery",
@@ -54,12 +54,12 @@ export class AccountService {
   async getProfile(address) {
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': '4da31a45b01c56185b6762a7bfb5811b9a2b64b005c9c6fccf1662b77e5a6b34',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "CollectedAccountPageQuery",

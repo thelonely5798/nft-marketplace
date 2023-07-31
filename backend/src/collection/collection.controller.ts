@@ -1,6 +1,7 @@
-import { Body, CacheInterceptor, CacheTTL, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
+import { Body, CacheTTL, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { CollectionService } from './collection.service';
 import { GetCollectionAssetSearchListPaginationQueryDTO, GetCollectionsRankingsByTopDTO, GetCollectionsRankingsByTrendingDTO, GetPageQueryDTO } from './dto';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @Controller('collection')
 export class CollectionController {

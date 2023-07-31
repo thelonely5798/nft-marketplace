@@ -14,12 +14,12 @@ export class CategoryService {
     const tags = await this.getTrendingCategoryTagShelvesSectionQuery(slug)
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': 'cfea80d19696f90f3774fd364dd4538759107fbc3ad5a0fbc8743e8180c456e9',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "TrendingTagListQuery",
@@ -54,12 +54,12 @@ export class CategoryService {
   async getTrendingCategoryTagShelvesSectionQuery(categorySlug: string) {
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': '585d8cdde65e1c7a81783591e03ee97cc80b74dc24b68843b7ee0f5a0429e405',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "TrendingCategoryTagShelvesSectionQuery",
@@ -94,12 +94,12 @@ export class CategoryService {
 
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': 'b1ae81f82ee1d1a05472fbdf954561540c69fd1c45addae7f82eceef1e930f5d',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "CategoryCarouselQuery",
@@ -124,12 +124,12 @@ export class CategoryService {
   async getCategoryPageQuery(slug: string) {
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': '605bccd74948340483203ee9134827a7cb0f3d02aaf9e070541b6c07ba9c6cf4',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "CategoryPageQuery",
@@ -164,12 +164,12 @@ export class CategoryService {
   async getCategoryScrollerQuery(slug: string) {
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': 'ba8fa8145c794c5aa78e8c9564ec8e0d7f849edfe4284617cabe0016e6f76062',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "CategoryScrollerQuery",

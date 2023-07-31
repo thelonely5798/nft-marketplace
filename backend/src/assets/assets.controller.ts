@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, CacheTTL, UseInterceptors, CacheInterceptor } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, CacheTTL, UseInterceptors } from '@nestjs/common';
 import { AssetsService } from './assets.service';
 import { GetPageQueryDTO } from './dto';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @Controller('assets')
 export class AssetsController {

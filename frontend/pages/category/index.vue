@@ -110,9 +110,11 @@ const route = useRoute()
 const carouselQuery = ref([])
 
 onBeforeMount(async () => {
-    $('#preloader').delay(0).fadeIn();
-    await getCarouselQuery(),
-    await getCategoryByTrendingTagList()
+    
+    Promise.all([getCarouselQuery()]).then(()=> {
+        $('#preloader').delay(0).fadeIn();
+        loadingStore.set(false)
+    })
 })
 onMounted(async () => {
     nextTick(() => {
@@ -168,7 +170,7 @@ const activeSlick = () => {
     })
 }
 const getCategoryByTrendingTagList = async () => {
-    category.value = carouselQuery.value.map((d: any) => ({
+     category.value = carouselQuery.value.map((d: any) => ({
         slug: d.slug,
         name: d.name,
         collections: []
@@ -180,27 +182,24 @@ const getCategoryByTrendingTagList = async () => {
     }())
     Promise.all(promises).then(() => {
         activeSlick()
-        loadingStore.set(false)
     })
 }
 
 const getCarouselQuery = async () => {
-    const cache = sessionStorage.getItem("getCarouselQuery")
-    if (cache) {
-        const data = JSON.parse(cache)
-        carouselQuery.value = data
-        return
-    }
     const data = await network.getCarouselQuery()
     carouselQuery.value = data
-
     sessionStorage.setItem("getCarouselQuery", JSON.stringify(carouselQuery.value))
+    await getCategoryByTrendingTagList()
 }
 const getDataForHeader = () => {
-    return carouselQuery.value.map((value: any) => ({
+    try {
+        return carouselQuery.value.map((value: any) => ({
         href: Routes.Category + value.slug,
         name: value.name
     }))
+    } catch(err){
+        return []
+    }
 }
 
 const getCategoryScrollerQuery = async (slug: string): Promise<Array<any>> => {

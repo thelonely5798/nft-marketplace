@@ -9,12 +9,12 @@ export class AssetsService {
   async getPageQuery(variables: GetPageQueryDTO) {
     const options = {
       method: 'POST',
-      url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+       url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
       headers: {
         'content-type': 'application/json',
         'X-Signed-Query': 'ddcb6b8f7bf0c531bf79ec18ccfe8e6e9573da55255cf34df8e80088f5fedab0',
-        'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-        'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+        'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+         'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
       },
       data: {
         "id": "AssetPageQuery",

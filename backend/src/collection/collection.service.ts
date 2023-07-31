@@ -8,12 +8,12 @@ export class CollectionService {
     async getCollectionAssetSearchListPaginationQuery(variables: GetCollectionAssetSearchListPaginationQueryDTO) {
         const options = {
             method: 'POST',
-            url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+             url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
             headers: {
                 'content-type': 'application/json',
                 'X-Signed-Query': '60c4db014d4430666842e23c9fdf3e3e7e110ad68a0b3f7657e60bb531d39e84',
-                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-                'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+                'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+                 'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
             },
             data: {
                 "id": "CollectionAssetSearchListPaginationQuery",
@@ -36,12 +36,12 @@ export class CollectionService {
     async getCollectionPageQuery(collection: string) {
         const options = {
             method: 'POST',
-            url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+             url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
             headers: {
                 'content-type': 'application/json',
                 'X-Signed-Query': '23630f1dbbc6e4e64fb8de0c7678abf787cc638418a63b4b360bba06cc6ddc2a',
-                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-                'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+                'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+                 'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
             },
             data: {
                 "id": "CollectionPageQuery",
@@ -74,12 +74,12 @@ export class CollectionService {
     async getRankingsByTrending(data: GetCollectionsRankingsByTrendingDTO) {
         const options = {
             method: 'POST',
-            url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+             url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
             headers: {
                 'content-type': 'application/json',
                 'X-Signed-Query': '82e3e1549c27ae11258aecbe7ca0144fa9c7f4c793f2efb02e113b1f165d5fb9',
-                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-                'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+                'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+                 'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
             },
             data: {
                 "id": "RankingsPageTrendingQuery",
@@ -111,12 +111,12 @@ export class CollectionService {
     async getRankingsByTop(data: GetCollectionsRankingsByTopDTO) {
         const options = {
             method: 'POST',
-            url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
+             url: 'https://opensea-graphql3.p.rapidapi.com/__api/graphQL',
             headers: {
                 'content-type': 'application/json',
                 'X-Signed-Query': '138b9201d1eb914cc7ad3bf664a2aeca3ab0e4d347a47b0d30cfbb20064c1157',
-                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-                'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
+                'X-RapidAPI-Key': '0ee8097509msh3b97c77c8b65816p1ad23ejsn088e646557ae',
+                 'X-RapidAPI-Host': 'opensea-graphql3.p.rapidapi.com'
             },
             data: {
                 "id": "RankingsPageTopQuery",
